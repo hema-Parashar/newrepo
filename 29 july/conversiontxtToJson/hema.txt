@@ -1,0 +1,6 @@
+{
+"name": "hema parashar",
+"age":23,
+"graduation" :"mca",
+"city":"jaipur"
+}
