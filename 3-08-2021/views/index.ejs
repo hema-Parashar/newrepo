@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        p{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Register</h1>
+
+        <% if(typeof alert !='undefined' ) { %>
+            <% alert.forEach(function(error) { %>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <%= error.msg %>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <% }) %>
+                    <% } %>
+
+                        <form action="/" method="POST" name="form" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" name="username" id="username">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Ph_Number</label>
+                                <input type="tel" class="form-control" name="phone" id="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" name="email" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="dob" class="form-label">DOB</label>
+                                <input type="date" class="form-control" name="dob" id="dob" max="2002-01-01">
+                            </div>
+                            <div class="form-group">
+                                <label for="pass" class="form-label">Password</label>
+                                <input type="password" class="form-control" name="pass" id="pass">
+                            </div>
+                            <div class="form-group">
+                                <label for="cpass" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" name="cpass" id="cpass"
+                                    onblur="checkpass();">
+                            </div>
+                            <p id="errcpass"></p>
+                            <div class="form-group">
+                                <label for="address" class="form-label">Address</label>
+                                <textarea name="address" id="address" class="form-control" cols="25"
+                                    rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="mFile" class="form-label">Select a File</label>
+                                <input type="file" class="form-control" name="mFile" id="mFile">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+
+    </div>
+    <script>
+        function checkpass() {
+            if (document.form.pass.value != document.form.cpass.value) {
+                var msg = "Password does not match";
+                document.getElementById("errcpass").innerHTML = msg;
+                // alert("Confirm Password does not match with password");
+                // document.myForm.cpass.focus(); 
+                // document.myForm.cpass.blur();
+            } else {
+                document.getElementById("errcpass").innerHTML = "";
+            }
+        }
+        
+    </script>
+</body>
+
+</html>
