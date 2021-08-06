@@ -9,14 +9,10 @@ var st_data = /** @class */ (function () {
         this.Name = n;
         this.Marks = m;
     }
-    st_data.prototype.show = function () {
-        console.log("Id is " + this.id);
-        console.log("Name is " + this.Name);
-        console.log("Marks is " + this.Marks);
-    };
     return st_data;
 }());
 ;
+var arr = [];
 var recursive_Func = function () {
     rl.question('Enter ID ', function (id) {
         rl.question('Enter Name ', function (Name) {
@@ -24,12 +20,17 @@ var recursive_Func = function () {
                 rl.question('Do You Want To Enter More Values? Y/N ', function (answer4) {
                     if (answer4 == "n" || answer4 == "N") {
                         var obj = new st_data(id, Name, Marks);
-                        obj.show();
+                        arr.push(obj);
+                        for (var i = 0; i < arr.length; i++) {
+                            console.log("student id is : " + arr[i].id);
+                            console.log("student name is :" + arr[i].Name);
+                            console.log("student name is :" + arr[i].Marks);
+                        }
                         rl.close();
                     }
                     else {
                         var obj = new st_data(id, Name, Marks);
-                        obj.show();
+                        arr.push(obj);
                         recursive_Func();
                     }
                 });

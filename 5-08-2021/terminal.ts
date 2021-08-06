@@ -14,13 +14,9 @@ class st_data{
         this.Name = n;
         this.Marks = m;
     }
-    show(){
-        console.log(`Id is ${this.id}`);
-        console.log(`Name is ${this.Name}`);
-        console.log(`Marks is ${this.Marks}`);  
-    }
+    
 };
-
+var arr=[];
 var recursive_Func = function(){
 
 rl.question('Enter ID ', (id) => {
@@ -30,12 +26,18 @@ rl.question('Enter ID ', (id) => {
 
                 if (answer4 == "n" || answer4 == "N"){
                     var obj = new st_data(id,Name,Marks);
-                    obj.show();
+                    arr.push(obj);
+                    for(var i=0;i<arr.length;i++)
+                    {
+                            console.log(`student id is : ${arr[i].id}`);
+                            console.log(`student name is :${arr[i].Name}`);
+                            console.log(`student name is :${arr[i].Marks}`);
+                    }
                     rl.close();
                 }
                 else{
                     var obj = new st_data(id,Name,Marks);
-                    obj.show();
+                    arr.push(obj);
                     recursive_Func();
                 }
         });
